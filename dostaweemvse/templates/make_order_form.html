@@ -1,18 +1,25 @@
-<a href='/index'> На главную <a/> <br/><br/>
+<head>
+    <title> Доставим Все!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
 
-<b> Сделать заказ </b>
-<form action="/make_order" method="get">
-  <div>
-    <li> <label for="source"> Исходный пункт </label>
-    <input type="text" id="source" name="source" required> <br/>
-    
-    <li> <label for="target"> Конечный пункт </label>
-    <input type="text" id="target" name="target" required> <br/>
-    
-    <li> <label for="weight"> Вес посылки </label>
-    <input type="number" id='weight' name="weight" required> <br/>
-  </div>
-  <div>
-    <button> Заказать </button>
-  </div>
-</form>
+<body style='padding:30'>
+    <h2><a href='/index'> На главную <a/></h2> <br/><br/>
+
+    <b> Сделать заказ </b>
+    <form action="/make_order" method="get">
+        <div>
+          <li> <label for="source"> Исходный пункт </label>
+          <input type="text" id="source" name="source" required> <br/>
+      
+          <li> <label for="target"> Конечный пункт </label>
+          <input type="text" id="target" name="target" required> <br/>
+      
+          <li> <label for="weight"> Вес посылки </label>
+          <input type="number" id='weight' name="weight" required> <br/>
+         </div>
+      <div>
+          <button> Заказать </button>
+      </div>
+    </form>
+</body>
