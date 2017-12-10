@@ -1,8 +1,13 @@
 from django.http import HttpResponse
 from django.http import QueryDict
 from django.shortcuts import render
+<<<<<<< HEAD
 # import .models
 from .models.service import Service
+=======
+
+from .service import Service
+>>>>>>> d2dd47769aaed5195eb3d7fcefa850c47eae01e4
 
 def index(request):
     return render(request,'index.html', dict())

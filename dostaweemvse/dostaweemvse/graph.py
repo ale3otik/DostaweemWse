@@ -1,6 +1,6 @@
 from heapq import heappush, heappop
-from .route import Route
-from .edge import Edge
+from .models.route import Route
+from .models.edge import Edge
 
 
 class Graph:
