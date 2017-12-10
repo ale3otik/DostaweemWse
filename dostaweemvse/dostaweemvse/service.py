@@ -1,10 +1,9 @@
-from django.db import models
-from .delivery_base import DeliveryBase
+from .models.delivery_base import DeliveryBase
 from .graph import Graph
-
+from .models.order import Order
 
 class Service(object):
-	def get_order_info(order_id):
+	def get_order_info(self, order_id):
 		self.delivery_base = DeliveryBase()
 
 		try:
@@ -22,7 +21,7 @@ class Service(object):
 
 		return order_info
 
-	def make_order(data):
+	def make_order(self, data):
 		_from = data['source']
 		_to = data['target']
 		_route = None
@@ -34,7 +33,7 @@ class Service(object):
 			_metadata = ""
 	
 		_order = Order(_route, _metadata, _from, _to, _max_cost)
-		_route = build_route(_order)
+		_route = Graph.build_route(_order)
 		
 		if _route:
 			_route.save()
