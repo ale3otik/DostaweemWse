@@ -19,9 +19,9 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^get_order_info/', views.get_order_info, name='get_order_info'),
-    url(r'^order_info/', views.order_info, name='order_info'),
-    url(r'^make_order_form/', views.make_order_form, name='make_order_form'),
-    url(r'^make_order/', views.make_order, name='make_order'),
-    url(r'^index/', views.index, name='index'),
+    url(r'^get_order_info', views.get_order_info, name='get_order_info'),
+    url(r'^order_info', views.order_info, name='order_info'),
+    url(r'^make_order_form', views.make_order_form, name='make_order_form'),
+    url(r'^make_order', views.make_order, name='make_order'),
+    url(r'^', views.index, name='index'),
 ]
