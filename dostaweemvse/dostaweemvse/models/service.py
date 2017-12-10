@@ -1,6 +1,6 @@
-from .models.delivery_base import DeliveryBase
+from .delivery_base import DeliveryBase
 from .graph import Graph
-from .models.order import Order
+from .order import Order
 
 class Service(object):
 	def get_order_info(self, order_id):
