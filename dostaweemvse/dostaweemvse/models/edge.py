@@ -1,6 +1,11 @@
 from django.db import models
 from .location import Location
 
+class TypeOfEdge(models.Model):
+    cost = models.IntegerField()
+    max_weight = models.IntegerField()
+    name = models.CharField(max_length=30)
+    
 class Edge(models.Model):
     start_location = models.ForeignKey(Location, on_delete=models.CASCADE)
     end_location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -11,8 +16,3 @@ class Edge(models.Model):
     def cost(self):
         return self.edge_type_id.cost * self.length
 
-
-class TypeOfEdge(models.Model):
-    cost = models.IntegerField()
-    max_weight = models.IntegerField()
-    name = models.CharField(max_length=30)
