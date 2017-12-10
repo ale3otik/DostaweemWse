@@ -20,9 +20,9 @@
     <div>   
         {% for leg in route %} 
             {% if forloop.counter0 == position %}
-                <b> <font color="green" > -- </font> </b>
+                <b> <font color="green" > ---> </font> </b>
             {% else %}
-                <b> <font color="white" > -- </font> </b> 
+                <b> <font color="white" > ---> </font> </b> 
             {% endif %}
             {{leg}} <br>
             {% endfor %}
