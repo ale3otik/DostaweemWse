@@ -32,7 +32,7 @@ class Graph:
                 if edge.end_location.id in best_path_to:
                     continue
                 if edge.cost:
-                    heappush(heap, (cost + edge.cost,
+                    heappush(dist_heap, (cost + edge.cost,
                         edge.end_location, edge))
         else:
             return None, None
