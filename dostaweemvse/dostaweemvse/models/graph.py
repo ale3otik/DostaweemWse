@@ -34,7 +34,8 @@ class Graph:
                 if edge.edge_type_id.max_weight >= weight:
                     heappush(dist_heap, (cost + edge.cost,
                         edge.end_location, edge))
-        else:
+
+        if to_location.id not in best_path_to:
             return None, None
 
         path = []
