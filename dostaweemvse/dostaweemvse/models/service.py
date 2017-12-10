@@ -3,6 +3,7 @@ from .graph import Graph
 from .order import Order
 from .location import Location
 
+
 class Service(object):
 	delivery_base = DeliveryBase()
 
@@ -22,6 +23,7 @@ class Service(object):
 		}
 
 		return order_info
+
 	@staticmethod
 	def make_order(data):
 		_from = Location.objects.filter(location_name=data['source'])[0]
@@ -47,7 +49,7 @@ class Service(object):
 		_route = Graph.build_route(_order)
 
 		if _route:
-			_route.save()
+			# _route.save()
 			_order.route = _route
 			_order.save()
 
