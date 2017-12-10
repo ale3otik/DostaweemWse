@@ -3,3 +3,13 @@
 Ваш заказ № <b> {{order_id}} </b> <br/>
 
 Информация по заказу: <br/>
+
+<li>  <u>Откуда </u> : {{source}}
+<li>  <u>Куда </u> : {{target}}
+<li>  <u>Вес </u> : {{weight}}
+<li>  <u>Маршрут</u> :
+<div>   
+    {% for leg in route %} 
+        -> {{leg}} <br>
+        {% endfor %}
+</div>
