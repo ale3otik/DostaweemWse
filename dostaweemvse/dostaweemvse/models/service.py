@@ -33,7 +33,14 @@ class Service(object):
 		else:
 			_metadata = ""
 
-		_order = Order(_route, _metadata, _from, _to, _max_cost)
+		_order = Order(
+			route=_route, 
+			metadata=_metadata, 
+			from_location=_from, 
+			to_location=_to, 
+			max_cost=_max_cost
+			)
+		
 		_route = Graph.build_route(_order)
 
 		if _route:
