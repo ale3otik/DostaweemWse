@@ -27,5 +27,16 @@ def order_info(request):
     context = {'order_id' : order_id}
     return render(request,'order_info.html', context)
 
+def make_order_form(request):
+    return render(request,'make_order_form.html', dict())
+
 def make_order(request):
-    return render(request,'make_order.html', dict())
+    
+    success = True
+    created_order_id = 12
+    reason_of_failure = 'Wrong target address'
+
+    if success:
+        return render(request,'make_order_success.html', {'order_id' : created_order_id})
+    else :
+        return render(request,'make_order_failure.html', {'reason' : reason_of_failure})

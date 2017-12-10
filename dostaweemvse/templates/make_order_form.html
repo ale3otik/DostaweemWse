@@ -1,0 +1,18 @@
+<a href='/index'> На главную <a/> <br/><br/>
+
+<b> Сделать заказ </b>
+<form action="/make_order" method="get">
+  <div>
+    <li> <label for="source"> Исходный пункт </label>
+    <input type="text" id="source" name="source" required> <br/>
+    
+    <li> <label for="target"> Конечный пункт </label>
+    <input type="text" id="target" name="target" required> <br/>
+    
+    <li> <label for="weight"> Вес посылки </label>
+    <input type="number" id='weight' name="weight" required> <br/>
+  </div>
+  <div>
+    <button> Заказать </button>
+  </div>
+</form>
