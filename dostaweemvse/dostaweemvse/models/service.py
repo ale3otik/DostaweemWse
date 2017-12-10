@@ -6,8 +6,8 @@ from .location import Location
 
 class Service(object):
 	def __init__(self):
-		print('initialize service')
 		self.delivery_base = DeliveryBase()
+		self.delivery_base.save()
 
 	def get_order_info(self, order_id):
 		try:
@@ -26,6 +26,8 @@ class Service(object):
 		return order_info
 
 	def make_order(self, data):
+		print('*********************************')
+		print(data)
 		_from = Location.objects.filter(location_name=data['source'])[0]
 		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
@@ -55,6 +57,6 @@ class Service(object):
 
 			self.delivery_base.save_order(_order)
 			self.delivery_base.save()
-
+			return [True, _order.id]
 		else:
-			raise RuntimeError("unable to build graph")
+			return [False,"unable to build graph"]
