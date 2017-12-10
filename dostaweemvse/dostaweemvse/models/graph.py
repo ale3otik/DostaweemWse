@@ -4,19 +4,16 @@ from heapq import heappush, heappop
 class Graph:
     @staticmethod
     def build_route(order):
-        from_id = order.from_id
-        to_id = order.to_id
+        path, sum_cost = find_best_path(order.from_location, order.to_location)
 
-        path = find_path(from_id, to_id)
-
-        if path is None:
-            order.route_id = None
+        if path is None or sum_cost > order.max_cost:
+            order.route = None
         else:
-            # TODO
+            order.route = Route(edges=path, active_edge_index=0)
 
 
     @staticmethod
-    def find_path(self, from_location, to_location):
+    def find_best_path(self, from_location, to_location):
         best_path_to = {}
         dist_heap = [(0, from_location, None)]
 
@@ -34,12 +31,14 @@ class Graph:
                     heappush(heap, (cost + edge.cost,
                         edge.end_location, edge))
         else:
-            return None
+            return None, None
 
         path = []
         cur = to_location
+        sum_cost = 0
         while cur != from_location:
             edge = came_from[cur.id]
             path.append(edge)
+            sum_cost += edge.cost
             cur = edge.start_location
-        return reversed(edges)
+        return reversed(edges), sum_cost
