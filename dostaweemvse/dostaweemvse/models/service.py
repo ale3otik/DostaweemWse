@@ -27,7 +27,8 @@ class Service(object):
 		_from = Location.objects.filter(location_name=data['source'])[0]
 		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
-		_max_cost = int(data['weight'])
+		_weight = int(data['weight'])
+		_max_cost = int(data['max_cost'])
 
 		if 'meta' in data.keys():
 			_metadata = data['meta']
@@ -40,7 +41,7 @@ class Service(object):
 			from_location=_from,
 			to_location=_to,
 			max_cost=_max_cost,
-			weight=_max_cost,
+			weight=_weight,
 			)
 
 		_route = Graph.build_route(_order)
