@@ -3,8 +3,9 @@ from .route import Route
 from .location import Location
 
 class Order(models.model):
-    route = models.ForeignKey(Route)
+    route = models.ForeignKey(Route, on_delete=models.CASCADE)
     metadata = models.CharField(max_length=50)
-    from_location = models.ForeignKey(Location)
-    to_location = models.ForeignKey(Location)
+    from_location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    to_location = models.ForeignKey(Location, on_delete=models.CASCADE)
     max_cost = models.IntegerField()
+    weight = models.IntegerField()
