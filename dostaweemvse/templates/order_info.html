@@ -13,18 +13,18 @@
 
     Информация по заказу: <br/>
 
-    <li>  <u>Откуда </u> : {{source}}
-    <li>  <u>Куда </u> : {{target}}
+    <li>  <u>Откуда </u> : {{source.location_name}}
+    <li>  <u>Куда </u> : {{target.location_name}}
     <li>  <u>Вес </u> : {{weight}}
     <li>  <u>Маршрут</u> :
-    <div>   
-        {% for leg in route %} 
+    <div>
+        {% for edge in route %}
             {% if forloop.counter0 == position %}
-                <b> <font color="green" > -- </font> </b>
+                <b> <font color="green" > ---> </font> </b>
             {% else %}
-                <b> <font color="white" > -- </font> </b> 
+                <b> <font color="white" > ---> </font> </b>
             {% endif %}
-            {{leg}} <br>
+            {{edge.start_location.location_name}} - {{edge.end_location.location_name}} <br>
             {% endfor %}
     </div>
 </body>

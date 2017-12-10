@@ -9,6 +9,24 @@ class Service(object):
 		self.delivery_base = DeliveryBase()
 		self.delivery_base.save()
 
+	@staticmethod
+	def __fix_route_order(edge_container, from_location, to_location):
+		location_dict = dict()
+
+		for edge in edge_container:
+			location_dict[edge.start_location.id] = edge
+
+		right_order_route = []
+
+		cur_location = from_location
+
+		while cur_location != to_location:
+			edge = location_dict[cur_location.id]
+			right_order_route.append(edge)
+			cur_location = edge.end_location
+
+		return right_order_route
+
 	def get_order_info(self, order_id):
 		try:
 			order = self.delivery_base.get_order(order_id)
@@ -18,7 +36,8 @@ class Service(object):
 		order_info = {
 			'source': order.from_location,
 			'target': order.to_location,
-			'route': list(order.route.edges.all()),
+			'route': Service.__fix_route_order(order.route.edges.all(),
+				order.from_location, order.to_location),
 			'position': order.route.active_edge_index,
 			'weight': order.route.get_active_edge().edge_type_id.max_weight
 		}
@@ -26,8 +45,6 @@ class Service(object):
 		return order_info
 
 	def make_order(self, data):
-		print('*********************************')
-		print(data)
 		_from = Location.objects.filter(location_name=data['source'])[0]
 		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
