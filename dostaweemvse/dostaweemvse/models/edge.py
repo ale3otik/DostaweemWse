@@ -5,6 +5,7 @@ class Edge(models.Model):
     start_location = models.IntegerField()
     end_location = models.IntegerField()
     edge_type_id = models.IntegerField()
+    length = models.IntegerField()
 
 
 class TypeOfEdge(models.Model):
