@@ -3,11 +3,12 @@ from .graph import Graph
 from .order import Order
 
 class Service(object):
-	def get_order_info(self, order_id):
-		self.delivery_base = DeliveryBase()
-
+	delivery_base = DeliveryBase()
+	
+	@staticmethod
+	def get_order_info(order_id):
 		try:
-			order = self.delivery_base.get_order(order_id)
+			order = delivery_base.get_order(order_id)
 		except Exception:
 			return None
 
@@ -20,8 +21,8 @@ class Service(object):
 		}
 
 		return order_info
-
-	def make_order(self, data):
+	@staticmethod
+	def make_order(data):
 		_from = data['source']
 		_to = data['target']
 		_route = None
@@ -40,8 +41,8 @@ class Service(object):
 			_order.route = _route
 			_order.save()
 
-			self.delivery_base.save_order(_order)
-			self.delivery_base.save()
+			delivery_base.save_order(_order)
+			delivery_base.save()
 
 		else:
 			raise RuntimeError()
