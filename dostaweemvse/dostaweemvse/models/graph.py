@@ -32,7 +32,7 @@ class Graph:
                 if edge.end_location.id in best_path_to:
                     continue
                 if edge.edge_type_id.max_weight >= weight:
-                    heappush(dist_heap, (cost + edge.cost(),
+                    heappush(dist_heap, (cost + edge.cost,
                         edge.end_location, edge))
         else:
             return None, None
@@ -43,6 +43,6 @@ class Graph:
         while cur != from_location:
             edge = cur[cur.id]
             path.append(edge)
-            sum_cost += edge.cost()
+            sum_cost += edge.cost
             cur = edge.start_location
         return reversed(path), sum_cost
