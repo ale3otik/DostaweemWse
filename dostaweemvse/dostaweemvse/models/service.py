@@ -1,6 +1,7 @@
 from .delivery_base import DeliveryBase
 from .graph import Graph
 from .order import Order
+from .location import Location
 
 class Service(object):
 	delivery_base = DeliveryBase()
