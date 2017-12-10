@@ -57,3 +57,4 @@ def make_order(request):
     else :
         reason_of_failure = response
         return render(request,'make_order_failure.html', {'reason' : reason_of_failure})
+        

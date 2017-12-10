@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from . import views
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^get_order_info', views.get_order_info, name='get_order_info'),
@@ -25,3 +26,5 @@ urlpatterns = [
     url(r'^make_order', views.make_order, name='make_order'),
     url(r'^', views.index, name='index'),
 ]
+
+# urlpatterns += staticfiles_urlpatterns()
