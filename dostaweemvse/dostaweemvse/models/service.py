@@ -4,7 +4,7 @@ from .order import Order
 
 class Service(object):
 	delivery_base = DeliveryBase()
-	
+
 	@staticmethod
 	def get_order_info(order_id):
 		try:
@@ -23,8 +23,8 @@ class Service(object):
 		return order_info
 	@staticmethod
 	def make_order(data):
-		_from = data['source']
-		_to = data['target']
+		_from = Location(data['source'])
+		_to = Location(data['target'])
 		_route = None
 		_max_cost = data['weight']
 
@@ -32,10 +32,10 @@ class Service(object):
 			_metadata = data['meta']
 		else:
 			_metadata = ""
-	
+
 		_order = Order(_route, _metadata, _from, _to, _max_cost)
 		_route = Graph.build_route(_order)
-		
+
 		if _route:
 			_route.save()
 			_order.route = _route
