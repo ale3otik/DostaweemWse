@@ -24,10 +24,10 @@ class Service(object):
 		return order_info
 	@staticmethod
 	def make_order(data):
-		_from = Location(data['source'])
-		_to = Location(data['target'])
+		_from = Location.objects.filter(location_name=data['source'])
+		_to = Location.objects.filter(location_name=data['target'])
 		_route = None
-		_max_cost = data['weight']
+		_max_cost = int(data['weight'])
 
 		if 'meta' in data.keys():
 			_metadata = data['meta']
@@ -35,13 +35,13 @@ class Service(object):
 			_metadata = ""
 
 		_order = Order(
-			route=_route, 
-			metadata=_metadata, 
-			from_location=_from, 
-			to_location=_to, 
+			route=_route,
+			metadata=_metadata,
+			from_location=_from,
+			to_location=_to,
 			max_cost=_max_cost
 			)
-		
+
 		_route = Graph.build_route(_order)
 
 		if _route:
