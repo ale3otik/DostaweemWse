@@ -1,11 +1,9 @@
 from django.core.management.base import BaseCommand
-
-from dostaweemvse.models.location import *
 from dostaweemvse.models.edge import *
+from dostaweemvse.models.location import *
 
 
 class Command(BaseCommand):
-
     def _initialize(self):
         locations = [Location(location_name='Колумбия'),
                      Location(location_name='Москва'),
@@ -23,10 +21,24 @@ class Command(BaseCommand):
         for type_ in types:
             type_.save()
             type_ids.append(type_.id)
-        edges = [Edge(start_location=locations[2], end_location=locations[1], edge_type_id=types[1] ,length=8000),
-                 Edge(start_location=locations[0], end_location=locations[2], edge_type_id=types[1] ,length=1000),
-                 Edge(start_location=locations[0], end_location=locations[3], edge_type_id=types[0] ,length=8000),
-                 Edge(start_location=locations[1], end_location=locations[3], edge_type_id=types[2] ,length=10)
+        edges = [Edge(start_location=locations[2], end_location=locations[1], edge_type_id=types[1],
+                      length=8000),
+                 Edge(start_location=locations[1], end_location=locations[2], edge_type_id=types[1],
+                      length=8000),
+
+                 Edge(start_location=locations[2], end_location=locations[0], edge_type_id=types[1],
+                      length=1000),
+                 Edge(start_location=locations[0], end_location=locations[2], edge_type_id=types[1],
+                      length=1000),
+
+                 Edge(start_location=locations[3], end_location=locations[0], edge_type_id=types[0],
+                     length=8000),
+                 Edge(start_location=locations[0], end_location=locations[3], edge_type_id=types[0],
+                      length=8000),
+                 Edge(start_location=locations[3], end_location=locations[1], edge_type_id=types[2],
+                      length=10),
+                 Edge(start_location=locations[1], end_location=locations[3], edge_type_id=types[2],
+                      length=10)
                  ]
         for edge in edges:
             edge.save()

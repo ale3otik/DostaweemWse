@@ -1,7 +1,7 @@
 from heapq import heappush, heappop
 from .route import Route
 from .edge import Edge
-
+import numpy
 
 class Graph:
     @staticmethod
@@ -11,7 +11,11 @@ class Graph:
         if path is None or sum_cost > order.max_cost:
             return None
         else:
-            return Route(edges=path, active_edge_index=0)
+            route = Route(active_edge_index=0)
+            route.save()
+            for edge in path:
+                route.edges.add(edge)
+            return route
             # route.save()
             # order.route = route
             # order.save()
@@ -34,14 +38,15 @@ class Graph:
                 if edge.edge_type_id.max_weight >= weight:
                     heappush(dist_heap, (cost + edge.cost,
                         edge.end_location, edge))
-        else:
+
+        if to_location.id not in best_path_to:
             return None, None
 
         path = []
         cur = to_location
         sum_cost = 0
         while cur != from_location:
-            edge = cur[cur.id]
+            edge = best_path_to[cur.id]
             path.append(edge)
             sum_cost += edge.cost
             cur = edge.start_location

@@ -3,6 +3,7 @@ from .graph import Graph
 from .order import Order
 from .location import Location
 
+
 class Service(object):
 	delivery_base = DeliveryBase()
 
@@ -22,12 +23,14 @@ class Service(object):
 		}
 
 		return order_info
+
 	@staticmethod
 	def make_order(data):
-		_from = Location.objects.filter(location_name=data['source'])
-		_to = Location.objects.filter(location_name=data['target'])
+		_from = Location.objects.filter(location_name=data['source'])[0]
+		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
-		_max_cost = int(data['weight'])
+		_weight = int(data['weight'])
+		_max_cost = int(data['max_cost'])
 
 		if 'meta' in data.keys():
 			_metadata = data['meta']
@@ -39,13 +42,14 @@ class Service(object):
 			metadata=_metadata,
 			from_location=_from,
 			to_location=_to,
-			max_cost=_max_cost
+			max_cost=_max_cost,
+			weight=_weight,
 			)
 
 		_route = Graph.build_route(_order)
 
 		if _route:
-			_route.save()
+			# _route.save()
 			_order.route = _route
 			_order.save()
 
@@ -53,4 +57,4 @@ class Service(object):
 			delivery_base.save()
 
 		else:
-			raise RuntimeError()
+			raise RuntimeError("unable to build graph")
