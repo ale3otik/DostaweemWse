@@ -24,8 +24,8 @@ class Service(object):
 		return order_info
 	@staticmethod
 	def make_order(data):
-		_from = Location.objects.filter(location_name=data['source'])
-		_to = Location.objects.filter(location_name=data['target'])
+		_from = Location.objects.filter(location_name=data['source'])[0]
+		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
 		_max_cost = int(data['weight'])
 
@@ -53,4 +53,4 @@ class Service(object):
 			delivery_base.save()
 
 		else:
-			raise RuntimeError()
+			raise RuntimeError("unable to build graph")
