@@ -103,3 +103,4 @@ ENV/
 *.csv
 *.tsv
 *.npy
+db.*
