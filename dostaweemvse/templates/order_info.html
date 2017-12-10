@@ -10,6 +10,11 @@
 <li>  <u>Маршрут</u> :
 <div>   
     {% for leg in route %} 
-        -> {{leg}} <br>
+        {% if forloop.counter0 == position %}
+            <b> <font color="green" > ----> </font> </b>
+        {% else %}
+            <b> <font color="white" > ----> </font> </b> 
+        {% endif %}
+        {{leg}} <br>
         {% endfor %}
 </div>
