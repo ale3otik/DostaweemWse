@@ -3,6 +3,7 @@ from django.http import QueryDict
 from django.shortcuts import render
 from .models.service import Service
 
+service = Service()
 
 def index(request):
     return render(request,'index.html', dict())
@@ -21,7 +22,7 @@ def order_info(request):
         return HttpResponse("<a href='/index'> На главную <a/> <br/><br/>" 
             + 'Пожалуйста, введите корректный номер заказа')    
 
-    order_info_dict = Service.get_order_info(order_id)
+    order_info_dict = service.get_order_info(order_id)
     
     '''
     order_info_dict =  {
@@ -47,7 +48,7 @@ def make_order_form(request):
     return render(request,'make_order_form.html', dict())
 
 def make_order(request):
-    success, response = Service.make_order(request.GET)
+    success, response = service.make_order(request.GET)
     #success = True
     #created_order_id = 12
     #reason_of_failure = 'Wrong target address'

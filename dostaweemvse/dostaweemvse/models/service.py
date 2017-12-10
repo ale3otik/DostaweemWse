@@ -5,12 +5,13 @@ from .location import Location
 
 
 class Service(object):
-	delivery_base = DeliveryBase()
+	def __init__(self):
+		print('initialize service')
+		self.delivery_base = DeliveryBase()
 
-	@staticmethod
-	def get_order_info(order_id):
+	def get_order_info(self, order_id):
 		try:
-			order = delivery_base.get_order(order_id)
+			order = self.delivery_base.get_order(order_id)
 		except Exception:
 			return None
 
@@ -24,8 +25,7 @@ class Service(object):
 
 		return order_info
 
-	@staticmethod
-	def make_order(data):
+	def make_order(self, data):
 		_from = Location.objects.filter(location_name=data['source'])[0]
 		_to = Location.objects.filter(location_name=data['target'])[0]
 		_route = None
@@ -53,8 +53,8 @@ class Service(object):
 			_order.route = _route
 			_order.save()
 
-			delivery_base.save_order(_order)
-			delivery_base.save()
+			self.delivery_base.save_order(_order)
+			self.delivery_base.save()
 
 		else:
 			raise RuntimeError("unable to build graph")
