@@ -7,6 +7,7 @@ class Edge(models.Model):
     edge_type_id = models.ForeignKey(TypeOfEdge, on_delete=models.CASCADE)
     length = models.IntegerField()
 
+    @property
     def cost(self):
         return self.edge_type_id.cost * self.length
 
