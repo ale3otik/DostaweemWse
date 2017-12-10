@@ -1,7 +1,7 @@
 from django.db import models
 from .edge import Edge
 
-class Route(models.model):
+class Route(models.Model):
     edges = models.ManyToManyField(Edge)
     active_edge_index = models.IntegerField()
 

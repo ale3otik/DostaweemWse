@@ -1,7 +1,7 @@
 from django.db import models
 from .order import Order
 
-class DeliveryBase(models.model):
+class DeliveryBase(models.Model):
 	orders = models.ManyToManyField(Order)
 
 	def save_order(order):
