@@ -1,5 +1,5 @@
 from django.db import models
-
+from .location import Location
 
 class Edge(models.Model):
     start_location = models.ForeignKey(Location, on_delete=models.CASCADE)

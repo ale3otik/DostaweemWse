@@ -1,23 +1,28 @@
 from heapq import heappush, heappop
-
+from .route import Route
+from .edge import Edge
 
 class Graph:
     @staticmethod
     def build_route(order):
-        path, sum_cost = find_best_path(order.from_location, order.to_location)
+        path, sum_cost = Graph.find_best_path(order.from_location, order.to_location)
 
         if path is None or sum_cost > order.max_cost:
             order.route = None
         else:
-            order.route = Route(edges=path, active_edge_index=0)
+            route = Route(edges=path, active_edge_index=0)
+            route.save()
+            order.route = route
+            order.save()
+
 
 
     @staticmethod
-    def find_best_path(self, from_location, to_location):
+    def find_best_path(from_location, to_location):
         best_path_to = {}
         dist_heap = [(0, from_location, None)]
 
-         while len(dist_heap) > 0:
+        while len(dist_heap) > 0:
             cost, cur_location, best_last_edge = heappop(dist_heap)
             if cur_location.id in best_path_to:
                 pass

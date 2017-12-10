@@ -1,5 +1,5 @@
 from django.db import models
-
+from .edge import Edge
 
 class Route(models.model):
     edges = models.ManyToManyField(Edge, through="Index")

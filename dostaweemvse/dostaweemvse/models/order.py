@@ -1,5 +1,6 @@
 from django.db import models
-
+from .route import Route
+from .location import Location
 
 class Order(models.model):
     route = models.ForeignKey(Route)
