@@ -1,7 +1,7 @@
 from heapq import heappush, heappop
 from .route import Route
 from .edge import Edge
-
+import numpy
 
 class Graph:
     @staticmethod
@@ -11,7 +11,11 @@ class Graph:
         if path is None or sum_cost > order.max_cost:
             return None
         else:
-            return Route(edges=path, active_edge_index=0)
+            route = Route(active_edge_index=0)
+            route.save()
+            for edge in path:
+                route.edges.add(edge)
+            return route
             # route.save()
             # order.route = route
             # order.save()
