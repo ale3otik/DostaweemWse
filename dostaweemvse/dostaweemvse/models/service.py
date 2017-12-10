@@ -39,7 +39,8 @@ class Service(object):
 			metadata=_metadata,
 			from_location=_from,
 			to_location=_to,
-			max_cost=_max_cost
+			max_cost=_max_cost,
+			weight=_max_cost,
 			)
 
 		_route = Graph.build_route(_order)

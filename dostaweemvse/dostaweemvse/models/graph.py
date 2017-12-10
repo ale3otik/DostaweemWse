@@ -41,7 +41,7 @@ class Graph:
         cur = to_location
         sum_cost = 0
         while cur != from_location:
-            edge = cur[cur.id]
+            edge = best_path_to[cur.id]
             path.append(edge)
             sum_cost += edge.cost
             cur = edge.start_location
