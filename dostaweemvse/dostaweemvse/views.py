@@ -13,9 +13,11 @@ def order_info(request):
         order_id = None
     
     if order_id is None:
-        return HttpResponse('Please type-in correct order_id')    
-    return HttpResponse('order id is %s' %  order_id)
+        return HttpResponse("<a href='/index'> На главную <a/> <br/><br/>" 
+            + 'Пожалуйста, введите корректный номер заказа')    
+
+    context = {'order_id' : order_id}
+    return render(request,'order_info.html', context)
 
 def make_order(request):
-    new_order_id = 1
-    return HttpResponse('Order created, order id is %s' % new_order_id)
+    return render(request,'make_order.html', dict())
