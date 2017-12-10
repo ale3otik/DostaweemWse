@@ -1,11 +1,18 @@
-<a href='/index'> На главную <a/> <br/><br/>
-<form action="/order_info" method="get">
-  <div>
-    <label for="order_id">Введите номер заказа: </label>
-    <input type="number" id="order_id" name="order_id" required pattern='^[0-9]+$'>
-    <span class="validity"></span>
-  </div>
-  <div>
-    <button>Получить информацию о заказе</button>
-  </div>
-</form>
+<head>
+    <title> Доставим Все!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<body style='padding:30'>
+    <h2><a href='/index'> На главную <a/></h2> <br/><br/>
+    <form action="/order_info" method="get">
+        <div>
+            <label for="order_id">Введите номер заказа: </label>
+            <input type="number" id="order_id" name="order_id" required pattern='^[0-9]+$'>
+            <span class="validity"></span>
+        </div>
+        <div>
+            <button>Получить информацию о заказе</button>
+        </div>
+    </form>
+</body>

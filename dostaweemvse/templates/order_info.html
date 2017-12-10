@@ -1,20 +1,27 @@
-<a href='/index'> На главную <a/> <br/><br/>
+<head>
+    <title> Доставим Все!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
 
-Ваш заказ № <b> {{order_id}} </b> <br/>
+<body style='padding:30'>
+    <h2><a href='/index'> На главную <a/></h2> <br/><br/>
 
-Информация по заказу: <br/>
+    Ваш заказ № <b> {{order_id}} </b> <br/>
 
-<li>  <u>Откуда </u> : {{source}}
-<li>  <u>Куда </u> : {{target}}
-<li>  <u>Вес </u> : {{weight}}
-<li>  <u>Маршрут</u> :
-<div>   
-    {% for leg in route %} 
-        {% if forloop.counter0 == position %}
-            <b> <font color="green" > ----> </font> </b>
-        {% else %}
-            <b> <font color="white" > ----> </font> </b> 
-        {% endif %}
-        {{leg}} <br>
-        {% endfor %}
-</div>
+    Информация по заказу: <br/>
+
+    <li>  <u>Откуда </u> : {{source}}
+    <li>  <u>Куда </u> : {{target}}
+    <li>  <u>Вес </u> : {{weight}}
+    <li>  <u>Маршрут</u> :
+    <div>   
+        {% for leg in route %} 
+            {% if forloop.counter0 == position %}
+                <b> <font color="green" > -- </font> </b>
+            {% else %}
+                <b> <font color="white" > -- </font> </b> 
+            {% endif %}
+            {{leg}} <br>
+            {% endfor %}
+    </div>
+</body>
