@@ -41,8 +41,8 @@ class Graph:
         cur = to_location
         sum_cost = 0
         while cur != from_location:
-            edge = came_from[cur.id]
+            edge = cur[cur.id]
             path.append(edge)
             sum_cost += edge.cost
             cur = edge.start_location
-        return reversed(edges), sum_cost
+        return reversed(path), sum_cost
