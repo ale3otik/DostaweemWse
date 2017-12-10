@@ -2,6 +2,7 @@ from heapq import heappush, heappop
 from .route import Route
 from .edge import Edge
 
+
 class Graph:
     @staticmethod
     def build_route(order):
@@ -14,8 +15,6 @@ class Graph:
             route.save()
             order.route = route
             order.save()
-
-
 
     @staticmethod
     def find_best_path(from_location, to_location):
