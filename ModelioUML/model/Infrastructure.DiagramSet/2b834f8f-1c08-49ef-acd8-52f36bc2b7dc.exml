@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DeliveryClubEdvanced" version="4">
+  <OBJECT>
+    <ID name="DeliveryClubEdvanced" mc="Infrastructure.DiagramSet" uid="2b834f8f-1c08-49ef-acd8-52f36bc2b7dc"/>
+    <PID name="DeliveryClubEdvanced" mc="Standard.Project" uid="99cd1f8c-c2b8-459a-b4c7-b968fd0f6dd7"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[DeliveryClubEdvanced]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

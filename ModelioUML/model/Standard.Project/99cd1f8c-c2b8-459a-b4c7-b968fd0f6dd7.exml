@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DeliveryClubEdvanced" version="4">
+  <OBJECT>
+    <ID name="DeliveryClubEdvanced" mc="Standard.Project" uid="99cd1f8c-c2b8-459a-b4c7-b968fd0f6dd7"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[DeliveryClubEdvanced]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="deliveryclubedvanced" mc="Standard.Package" uid="bd034069-551b-4370-be0e-a1e2b643c78b"/>
+        <COMPID name="deliveryclub" mc="Standard.Package" uid="728817c5-7854-4a3d-b236-fa2a3ae9da8c"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="DeliveryClubEdvanced" mc="Infrastructure.DiagramSet" uid="2b834f8f-1c08-49ef-acd8-52f36bc2b7dc"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

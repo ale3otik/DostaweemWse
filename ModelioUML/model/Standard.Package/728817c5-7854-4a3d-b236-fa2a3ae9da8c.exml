@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="deliveryclub" version="4">
+  <OBJECT>
+    <ID name="deliveryclub" mc="Standard.Package" uid="728817c5-7854-4a3d-b236-fa2a3ae9da8c"/>
+    <PID name="DeliveryClubEdvanced" mc="Standard.Project" uid="99cd1f8c-c2b8-459a-b4c7-b968fd0f6dd7"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[deliveryclub]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Activity" mc="Standard.Activity" uid="1ccc26ce-6101-4dc9-81f4-612886eceeee"/>
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="a08c39ed-9812-4cde-9e46-babc75aa61a6"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Заказ" mc="Standard.Class" uid="bbc139cd-d8f1-4cfc-8dde-861b0ff8c924"/>
+        <COMPID name="Плечо" mc="Standard.Class" uid="6d0962c8-3e6d-4bc3-940c-678911e45d2b"/>
+        <COMPID name="Маршрут" mc="Standard.Class" uid="f407e0b6-c335-4e44-907c-ccca8f5b12b0"/>
+        <COMPID name="Тип Плеча" mc="Standard.Class" uid="aaa77914-9af1-45c6-8918-5fcf54402d54"/>
+        <COMPID name="Граф Путей" mc="Standard.Class" uid="f09ef828-aa44-4b30-823e-6b012d28e878"/>
+        <COMPID name="База Доставок" mc="Standard.Class" uid="fe9a62ce-384c-4dbc-86a8-cac454e1c378"/>
+        <COMPID name="Сервис" mc="Standard.Class" uid="bc5c7088-c852-4735-b1b9-5008354dcb02"/>
+        <COMPID name="Пользователь" mc="Standard.Actor" uid="43ed30b3-18a1-487f-ae7a-57c929a4ef20"/>
+        <COMPID name="сделатьЗаказ" mc="Standard.UseCase" uid="9c4cdffc-9627-44af-8f5e-510b6f8b0d8c"/>
+        <COMPID name="получитьСтатусЗаказа" mc="Standard.UseCase" uid="6d9907ba-9440-4bdc-babd-2cd9dcb21677"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="deliveryclub Class diagram" mc="Standard.ClassDiagram" uid="0c47d36a-57ba-443c-a896-cb4a087dac5e"/>
+        <COMPID name="deliveryclub Use Case diagram" mc="Standard.UseCaseDiagram" uid="9ef68e2b-15b4-4901-9cab-4e3643b55aad"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

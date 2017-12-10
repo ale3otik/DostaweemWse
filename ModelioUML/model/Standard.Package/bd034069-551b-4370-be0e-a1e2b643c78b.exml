@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="deliveryclubedvanced" version="4">
+  <OBJECT>
+    <ID name="deliveryclubedvanced" mc="Standard.Package" uid="bd034069-551b-4370-be0e-a1e2b643c78b"/>
+    <PID name="DeliveryClubEdvanced" mc="Standard.Project" uid="99cd1f8c-c2b8-459a-b4c7-b968fd0f6dd7"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[deliveryclubedvanced]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
