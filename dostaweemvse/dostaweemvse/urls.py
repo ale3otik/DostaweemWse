@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', views.index, name='index'),
+    url('order_info/', views.order_info, name='order_info'),
+    url('index/', views.index, name='index'),
 ]
