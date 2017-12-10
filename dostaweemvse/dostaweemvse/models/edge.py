@@ -7,6 +7,7 @@ class Edge(models.Model):
     edge_type_id = models.ForeignKey(TypeOfEdge, on_delete=models.CASCADE)
     length = models.IntegerField()
 
+
 class TypeOfEdge(models.Model):
     cost = models.IntegerField()
     max_weight = models.IntegerField()
