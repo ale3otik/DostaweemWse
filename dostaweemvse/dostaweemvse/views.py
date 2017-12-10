@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.http import QueryDict
 from django.shortcuts import render
 
-# from models.service import Service
+from models.service import Service
 
 def index(request):
     return render(request,'index.html', dict())
@@ -21,8 +21,9 @@ def order_info(request):
         return HttpResponse("<a href='/index'> На главную <a/> <br/><br/>" 
             + 'Пожалуйста, введите корректный номер заказа')    
 
-    # order_info_dict = Service.get_order_info(order_id)
+    order_info_dict = Service.get_order_info(order_id)
     
+    '''
     order_info_dict =  {
         'source' : 'Москва',
         'target' : 'Казахстан',
@@ -33,6 +34,7 @@ def order_info(request):
         'position' : 2,
         'weight' : 13.3,
     }
+    '''
 
     if order_info_dict is None:
         return HttpResponse("<a href='/index'> На главную <a/> <br/><br/>" 
@@ -45,13 +47,13 @@ def make_order_form(request):
     return render(request,'make_order_form.html', dict())
 
 def make_order(request):
-    # success, response = Service.make_order(request.GET)
-    success = True
-    created_order_id = 12
-    reason_of_failure = 'Wrong target address'
+    success, response = Service.make_order(request.GET)
+    #success = True
+    #created_order_id = 12
+    #reason_of_failure = 'Wrong target address'
     if success:
-        # created_order_id = response
+        created_order_id = response
         return render(request,'make_order_success.html', {'order_id' : created_order_id})
     else :
-        # reason_of_failure = response
+        reason_of_failure = response
         return render(request,'make_order_failure.html', {'reason' : reason_of_failure})
