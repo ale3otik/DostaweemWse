@@ -2,17 +2,20 @@ from .delivery_base import DeliveryBase
 from .graph import Graph
 from .order import Order
 from .location import Location
+from django.db import models
 
 
-class Service(object):
+class Service(models.Model):
 	def __init__(self):
 		try:
 			self.delivery_base = DeliveryBase.objects.get(pk=1)
 		except:
-			self.delivery_base = DeliveryBase()			
+			self.delivery_base = DeliveryBase()
 			print('created new delivery_base object')
-			
+
 		self.delivery_base.save()
+
+		super()
 
 	@staticmethod
 	def __fix_route_order(edge_container, from_location, to_location):
@@ -44,7 +47,7 @@ class Service(object):
 			'route': Service.__fix_route_order(order.route.edges.all(),
 				order.from_location, order.to_location),
 			'position': order.route.active_edge_index,
-			'weight': order.route.get_active_edge().edge_type_id.max_weight
+			'weight': order.weight
 		}
 
 		return order_info
