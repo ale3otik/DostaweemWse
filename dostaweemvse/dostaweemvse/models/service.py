@@ -40,14 +40,15 @@ class Service(models.Model):
 			order = self.delivery_base.get_order(order_id)
 		except Exception:
 			return None
-
+		edges_list = Service.__fix_route_order(order.route.edges.all(),
+								order.from_location, order.to_location)
 		order_info = {
 			'source': order.from_location,
 			'target': order.to_location,
-			'route': Service.__fix_route_order(order.route.edges.all(),
-				order.from_location, order.to_location),
+			'route': edges_list,
 			'position': order.route.active_edge_index,
-			'weight': order.weight
+			'weight': order.weight,
+			'cost' : sum([e.cost for e in edges_list]),
 		}
 
 		return order_info
