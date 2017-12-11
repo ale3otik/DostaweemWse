@@ -6,7 +6,12 @@ from .location import Location
 
 class Service(object):
 	def __init__(self):
-		self.delivery_base = DeliveryBase()
+		try:
+			self.delivery_base = DeliveryBase.objects.get(pk=1)
+		except:
+			self.delivery_base = DeliveryBase()			
+			print('created new delivery_base object')
+			
 		self.delivery_base.save()
 
 	@staticmethod
