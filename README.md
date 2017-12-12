@@ -1,6 +1,7 @@
 # DostaweemWse
 
-Как развернуть приложение у себя:
+Установка и запуск: 
+
 ```sh
 pip install django
 python manage.py migrate
