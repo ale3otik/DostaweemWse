@@ -3,15 +3,15 @@ from django.http import QueryDict
 from django.shortcuts import render
 from .models.service import Service
 
-service = Service()
-
 def index(request):
     return render(request,'index.html', dict())
 
 def get_order_info(request):
+    service = Service()
     return render(request,'get_order_info.html', dict())
 
 def order_info(request):
+    service = Service()
     query_dict = request.GET
     try:
         order_id = query_dict['order_id']
@@ -48,6 +48,8 @@ def make_order_form(request):
     return render(request,'make_order_form.html', dict())
 
 def make_order(request):
+    service = Service()
+
     success, response = service.make_order(request.GET)
     #success = True
     #created_order_id = 12

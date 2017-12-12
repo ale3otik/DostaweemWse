@@ -5,7 +5,7 @@ from .location import Location
 from django.db import models
 
 
-class Service(models.Model):
+class Service():
 	def __init__(self):
 		try:
 			self.delivery_base = DeliveryBase.objects.get(pk=1)
